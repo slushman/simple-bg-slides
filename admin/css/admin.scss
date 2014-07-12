@@ -1,0 +1,104 @@
+/* Admin Styling */
+
+@import "mixins";
+@import "toolkit";
+
+#sbgs_gallery {
+
+	.inside {
+		padding	: 12px;
+		margin	: 0;
+	}
+}
+
+.sbgs_thumbnails {
+	overflow    : hidden;
+	margin-top	: 0;
+}
+
+.sbgs_item {
+	max-width			: 80px;
+	max-height			: 80px;
+	overflow			: hidden;
+	float 				: left;
+	cursor				: move;
+	margin-right		: 7px;
+	position 			: relative;
+	
+	@include boxsize( border-box );
+
+	.sbgs_thumbnail {
+		width	: 80px;
+		height	: 80px;
+	}
+
+	&:nth-child(3) {
+		margin-right: 0;
+	}
+
+	&:hover .actions {
+		visibility: inherit;
+	}
+
+	.actions {
+		visibility: hidden;
+
+		@include absposition( 0, 0 );
+
+		li {
+			float: right;
+
+			a {
+				background		: #000;
+				color			: #fff;
+				display 		: block;
+				font-size		: 20px;
+				height			: 20px;
+				margin			: 0;
+				overflow 		: hidden;
+				position		: relative;
+				text-align 		: center;
+				text-decoration	: none;
+				text-indent		: -999px;
+				width			: 20px;
+
+				&.edit,
+				&.delete {
+					background	: #000;
+					position	: relative;
+					text-indent	: -999px;
+
+					&:before {
+						bottom		: 0;
+						color		: #fff;
+						content		: "\f464";
+						display		: block;
+						font-family	: 'Dashicons';
+						font-weight	: normal;
+						left		: 0;
+						position	: absolute;
+						right		: 0;
+						text-indent	: 0;
+						top			: 0;
+					}
+
+					&:hover {
+						background: #444;
+					}
+				}
+
+				&.delete {
+					background-color: #f63121;
+					&:before {
+						content: "\f335";
+					}
+					&:hover {
+						background: #f63121 - #222;
+					}
+				}
+			} // End of a
+		} // End of li
+	} // End of .actions
+} // End of .sbgs_item
+
+
